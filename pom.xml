@@ -28,6 +28,9 @@
 	</scm>
 	<properties>
 		<java.version>23</java.version>
+		<springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
+		<swagger.codegen.version>3.0.57</swagger.codegen.version>
+		<codegen.generated-sources>src/generated-sources</codegen.generated-sources>
 	</properties>
 	<dependencies>
 		<dependency>

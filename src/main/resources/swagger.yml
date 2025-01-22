@@ -1,0 +1,137 @@
+openapi: "3.0.0"
+info:
+  description: Документация к REST API сервиса GWairflow
+  version: 1.0.0
+  title: API GWairflow
+  termsOfService: https://console-openshift-console.apps.dev-terra000001-ids.ocp.delta.sbrf.ru/k8s/ns/ci02786638-portsd/pods
+  contact:
+    name: noname
+    email: noname@email.ru
+  license: {
+    name: 'SberData'
+  }
+servers:
+  - url: /control #portalsd.apps.dev-terra000001-ids.ocp.delta.sbrf.ru/control
+tags:
+  - name: Инструменты
+    description: Работа с инструментами проекта из БД
+  - name: Обозначение
+    description: Тестовый запрос
+  - name: AccessList
+    description: AccessList
+paths:
+  "/whoami":
+    get:
+      tags:
+        - Обозначение
+      summary: Получение пользователя в текущей сессии из JWT токена
+      description: Получение пользователя в текущей сессии из JWT токена
+      operationId: getUserNameUsingGET
+      responses:
+        '200':
+          description: Успешный запрос
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResponseUser"
+        '201':
+          description: Создан
+        '401':
+          description: Не авторизированный запрос
+        '403':
+          description: Нет прав
+        '404':
+          description: Данные не найдены
+        '500':
+          description: Ошибка сервера
+  "/etcd":
+    get:
+      tags:
+        - ETCD
+      summary: Получение данных из ETCD
+      description: Получение данных из ETCD
+      operationId: getTestDataGET
+      responses:
+        '200':
+          description: Успешный запрос
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/TestData"
+        '201':
+          description: Создан
+        '401':
+          description: Не авторизированный запрос
+        '403':
+          description: Нет прав
+        '404':
+          description: Данные не найдены
+        '500':
+          description: Ошибка сервера
+components:
+  schemas:
+    ResponseUser:
+      type: object
+      properties:
+        display_name:
+          type: string
+          example: Тестов Тест Тестович
+          description: ФИО пользователя
+        login:
+          type: string
+          example: 198213
+          description: Логин пользователя
+      title: ResponseUser
+    TestData:
+      title: TestData
+      type: object
+      properties:
+        value_etcd:
+          type: string
+          example: bar
+    EtcdReq:
+      title: EtcdReq
+      type: object
+      properties:
+        key:
+          type: string
+    EtcdModel:
+      title: EtcdModel
+      type: object
+      properties:
+        count:
+          type: string
+          example: "1"
+        header:
+          type: object
+          properties:
+            cluster_id:
+              type: string
+            member_id:
+              type: string
+            revision:
+              type: string
+            raft_term:
+              type: string
+        kvs:
+          type: array
+          items:
+            "$ref": "#/components/schemas/KvsModel"
+    KvsModel:
+      title: KvsModel
+      type: object
+      properties:
+        key:
+          type: string
+        create_revision:
+          type: string
+        mod_revision:
+          type: string
+        version:
+          type: string
+        value:
+          type: string
+
+
+
+

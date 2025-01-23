@@ -1,0 +1,11 @@
+        <java.version>17</java.version>
+        <spring-boot-starter-security.version>3.0.4</spring-boot-starter-security.version>
+        <swagger.codegen.version>3.0.57</swagger.codegen.version>
+        <codegen.generated-sources>src/generated-sources</codegen.generated-sources>
+        <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
+        <jackson.version>2.15.2</jackson.version>
+        <jooq.version>3.14.15</jooq.version>
+        <postgresql.version>42.5.4</postgresql.version>
+        <spring-boot-starter-actuator.version>3.1.0</spring-boot-starter-actuator.version>
+
+    </propert

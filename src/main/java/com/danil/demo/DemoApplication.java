@@ -20,7 +20,7 @@ public class DemoApplication {
 		System.out.println("hello world");
 		System.out.println("hello worldw2");
 		;
-		System.out.println(dancerService.jumper("ok"));
+		System.out.println(dancerService.jumper("ok").name);
 	}
 
 }

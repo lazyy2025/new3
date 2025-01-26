@@ -131,7 +131,31 @@ components:
           type: string
         value:
           type: string
-
-
+    DancerData:
+      title: TestDancer
+      type: object
+      properties:
+        name:
+          type: string
+          example: bar
+        age:
+          type: string
+          example: bar
+        height:
+          type: string
+          example: bar
+    Car:
+      title: TestCar
+      type: object
+      properties:
+        model:
+          type: string
+          example: bar
+        number:
+          type: string
+          example: bar
+        driver:
+          type: string
+          example: bar
 
 

@@ -1,4 +1,4 @@
-package com.danil.demo.config.HttpFilter;
+package ru.x.core.config.HttpFilter;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

@@ -1,0 +1,60 @@
+info:
+  description: Документация к REST API сервиса GWairflow
+  version: 1.0.0
+  title: API GWairflow
+  termsOfService: https://console-openshift-console.apps.dev-terra000001-ids.ocp.delta.sbrf.ru/k8s/ns/ci02786638-portsd/pods
+  contact:
+    name: noname
+    email: noname@email.ru
+  license: {
+    name: 'SberData'
+  }
+servers:
+  - url: /control #portalsd.apps.dev-terra000001-ids.ocp.delta.sbrf.ru/control
+tags:
+  - name: Инструменты
+    description: Работа с инструментами проекта из БД
+  - name: Обозначение
+    description: Тестовый запрос
+  - name: AccessList
+    description: AccessList
+paths:
+  "/whoami":
+    get:
+      tags:
+        - Обозначение
+      summary: Получение пользователя в текущей сессии из JWT токена
+      description: Получение пользователя в текущей сессии из JWT токена
+      operationId: getUserNameUsingGET
+      responses:
+        '200':
+          description: Успешный запрос
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ResponseUser"
+        '201':
+          description: Создан
+        '401':
+          description: Не авторизированный запрос
+        '403':
+          description: Нет прав
+        '404':
+          description: Данные не найдены
+        '500':
+          description: Ошибка сервера
+components:
+  schemas:
+    ResponseUser:
+      type: object
+      properties:
+        display_name:
+          type: string
+          example: Тестов Тест Тестович
+          description: ФИО пользователя
+        login:
+          type: string
+          example: 198213
+          description: Логин пользователя
+      title: ResponseUser
+
